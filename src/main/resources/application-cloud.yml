@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 272170096195-vfmkvlsjkj9005frfk68nbu10llvabq6.apps.googleusercontent.com
+            clientSecret: ${GOOGLE_CLIENT_SECRET}
+          github:
+            clientId: f333008d2d2615324ab2
+            clientSecret: ${GITHUB_CLIENT_SECRET}
+app:
+  auth:
+    tokenSecret: ${APP_AUTH_TOKEN_SECRET}
+    tokenExpirationMsec: 864000000
+  oauth2:
+    authorizedRedirectUris: https://www.prophector.com/oauth2/redirect,https://www.prophector.com

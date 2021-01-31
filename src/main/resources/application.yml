@@ -1,0 +1,8 @@
+server:
+  forward-headers-strategy: framework
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: ch.sebastianhaeni.prophector.ProphectorNamingStrategy

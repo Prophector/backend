@@ -1,0 +1,26 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12
+    volumes:
+      - ./data/:/var/lib/postgresql/data/
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prophector-data
+    networks:
+      - default
+  backend:
+    image: public.ecr.aws/r0s9l0e3/prophector:latest
+    depends_on:
+      - postgres
+    ports:
+      - '8080:8080'
+    env_file:
+      - env
+    networks:
+      - default
+networks:
+  default:
